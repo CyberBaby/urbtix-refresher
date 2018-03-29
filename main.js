@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Urbtix auto refresher
+// @name         CityLine auto refresher
 // @namespace    http://google.com/
 // @version      0.1
 // @description  fun cheung
