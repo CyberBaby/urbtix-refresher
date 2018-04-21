@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         CityLine auto refresher
+// @name         Urbtix auto refresher
 // @namespace    http://google.com/
 // @version      0.1
 // @description  fun cheung
 // @author       Knz
-// @match        *://*.cityline.com/*
+// @match        *://*.urbtix.hk/*
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js
 // @grant        none
 // ==/UserScript==
@@ -13,9 +13,10 @@
 
     window.jQuery310 = $.noConflict(true);
     console.log(window.location.href);
-    if(window.location.href.indexOf('busy')!=-1){
+    var sub_domain = window.location.href.split('.')[0].split('//')[1];
+    if(sub_domain=='msg' || sub_domain=='busy'){
         console.log("Get server busy in url");
-        setTimeout(function(){window.location.href = "http://event.cityline.com/utsvInternet/internet/action/event.do?actionFwd=eventDetail&event=24978&actionType=5&lang=TW";}, 1000);
+        setTimeout(function(){window.location.href = "http://www.urbtix.hk/";}, 1000);
     }
 
 })();
