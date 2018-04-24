@@ -19,7 +19,7 @@
         }
         return false;
     }
-    function checkReloadBurron(){
+    function checkReloadButton(){
         if(jQuery310('#reload-button').length){
             console.log("found reload button");
             return true;
@@ -29,6 +29,6 @@
     window.jQuery310 = $.noConflict(true);
     console.log(window.location.href);
     var sub_domain = window.location.href.split('.')[0].split('//')[1];
-    if(checkUrl() || checkReloadBurron()){
+    if(checkUrl() || checkReloadButton()){
         setTimeout(function(){window.location.href = "http://www.urbtix.hk/";}, 1000);
     }
