@@ -9,26 +9,28 @@
 // @grant        none
 // ==/UserScript==
 
+window.jQuery310 = $.noConflict(true);
+console.log(window.location.href);
+function checkUrl(){
+    var sub_domain = window.location.href.split('.')[0].split('//')[1];
+    if(sub_domain=='msg' || sub_domain=='busy'){
+        console.log("Get server busy in url");
+        return true;
+    }
+    return false;
+}
+function checkReloadButton(){
+    if(jQuery310('#reload-button').length){
+        console.log("found reload button");
+        return true;
+    }
+    return false;
+}
 (function() {
 
-    function checkUrl(){
-        var sub_domain = window.location.href.split('.')[0].split('//')[1];
-        if(sub_domain=='msg' || sub_domain=='busy'){
-            console.log("Get server busy in url");
-            return true;
-        }
-        return false;
-    }
-    function checkReloadButton(){
-        if(jQuery310('#reload-button').length){
-            console.log("found reload button");
-            return true;
-        }
-        return false;
-    }
-    window.jQuery310 = $.noConflict(true);
-    console.log(window.location.href);
-    var sub_domain = window.location.href.split('.')[0].split('//')[1];
     if(checkUrl() || checkReloadButton()){
+        console.log('reloading');
         setTimeout(function(){window.location.href = "http://www.urbtix.hk/";}, 1000);
     }
+
+})();
