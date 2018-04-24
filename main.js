@@ -9,7 +9,6 @@
 // @grant        none
 // ==/UserScript==
 
-window.jQuery310 = $.noConflict(true);
 console.log(window.location.href);
 function checkUrl(){
     var sub_domain = window.location.href.split('.')[0].split('//')[1];
@@ -20,7 +19,7 @@ function checkUrl(){
     return false;
 }
 function checkReloadButton(){
-    if(jQuery310('#reload-button').length){
+    if($('#reload-button').length){
         console.log("found reload button");
         return true;
     }
